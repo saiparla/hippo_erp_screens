@@ -93,10 +93,10 @@ const sortselection = () => {
         const updateSortIcon = () => {
             const sortValue = orderButton.dataset.sortState;
             if (sortValue === 'asc') {
-                img.src = '/assets/flowtech_ui/images/sort-asc.png';
+                img.src = '/assets/hippo_erp_screens/images/sort-asc.png';
                 img.alt = 'Ascending';
             } else {
-                img.src = '/assets/flowtech_ui/images/sort-desc.png';
+                img.src = '/assets/hippo_erp_screens/images/sort-desc.png';
                 img.alt = 'Descending';
             }
             orderButton.style.backgroundColor = '#017bcf';
@@ -425,7 +425,7 @@ const styleCheckboxes = () => {
             chk.style.backgroundSize = "14px 14px";
 
             chk.style.backgroundImage =
-                "url('/assets/flowtech_ui/images/check-solid-full.svg')"
+                "url('/assets/hippo_erp_screens/images/check-solid-full.svg')"
 
         };
 
@@ -504,7 +504,7 @@ const styleListView = () => {
         });
     });
 
-    const tickSvg = "/assets/flowtech_ui/images/check-solid-full.svg";
+    const tickSvg = "/assets/hippo_erp_screens/images/check-solid-full.svg";
     const rowCheckboxes = document.querySelectorAll('.list-row .list-row-checkbox');
     const selectAllChk = document.querySelector(".list-check-all");
 
