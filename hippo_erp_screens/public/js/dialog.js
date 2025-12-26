@@ -54,8 +54,8 @@ const styleCustomModal = () => {
                     btn.style.color = '#017bcf'
                 });
                 btn.addEventListener('mouseenter', () => {
-                    btn.style.border = '1px solid #fc3f19d8';
-                    btn.style.color = '#017bcf';
+                    btn.style.border = '1px solid #017bcf';
+                    btn.style.color = '#fc3f19d8';
                 });
             } else
                 if (btn.textContent.trim() === 'Edit Full Form' || btn.textContent.trim() === 'Edit') {

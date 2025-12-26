@@ -38,7 +38,7 @@ const replacePageIcon = () => {
 
             if (!btn.querySelector('img')) {
                 const img = document.createElement('img');
-                img.src = "/assets/flowtech_ui/images/reload.png";
+                img.src = "/assets/hippo_erp_screens/images/reload.png";
                 img.alt = "Reload";
                 img.style.width = "16px";
                 img.style.width = "16px";
@@ -62,7 +62,7 @@ const replacePageIcon = () => {
             if (svg) svg.remove();
             if (!btn.querySelector('img')) {
                 const img = document.createElement('img');
-                img.src = "/assets/flowtech_ui/images/printer.png";
+                img.src = "/assets/hippo_erp_screens/images/printer.png";
                 img.alt = "Reload";
                 img.style.width = "16px";
                 img.style.height = "16px";

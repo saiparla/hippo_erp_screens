@@ -462,7 +462,7 @@ standardfiltersobserver.observe(document.body, {
 const styleListView = () => {
     const header = document.querySelector(".list-row-head");
     if (header) {
-        header.style.setProperty("background-color", "#017bcf", "important");
+        header.style.setProperty("background-color", "#535353ff", "important");
         header.style.setProperty("color", "white", "important");
         header.style.setProperty("font-weight", "bold", "important");
         header.style.setProperty("border-radius", "4px", "important");

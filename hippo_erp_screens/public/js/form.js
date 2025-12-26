@@ -1,6 +1,7 @@
 const formtabs = () => {
     const formtabssection = document.querySelector('.form-tabs-list');
     if (!formtabssection) return;
+    formtabssection.style.borderBottom = 'none'
 
     const buttons = formtabssection.querySelectorAll('.nav-link');
     const activeButton = formtabssection.querySelector('.nav-link.active');
@@ -9,12 +10,13 @@ const formtabs = () => {
         btn.style.color = '#017bcf';
         btn.style.borderBottom = 'none';
         btn.style.fontWeight = '400';
+        btn.style.transition = 'border 0.2s';
     });
 
     if (activeButton) {
         activeButton.style.color = '#fc3f19d8';
         // activeButton.style.fontWeight = '600';
-        activeButton.style.borderBottom = '1px solid #fc3f19d8';
+        activeButton.style.borderBottom = '2px solid #017bcf';
     }
     if (commentBox) {
         commentBox.style.display = 'none'

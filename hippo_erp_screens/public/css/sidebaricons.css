@@ -358,7 +358,7 @@ use.like-icon {
 .btn.btn-primary.btn-sm.primary-action {
     transition: 400ms;
     width: max-content !important;
-    background-color: #017bcf !important;
+    background-color: green !important;
     border-radius: 5px !important;
     box-shadow: 0px 0px 3px #888;
 
@@ -371,7 +371,7 @@ use.like-icon {
 }
 
 .btn.btn-primary.btn-sm.primary-action:hover {
-    background-color: #fc3f19d8 !important;
+    background-color: rgb(3, 83, 3) !important;
 }
 
 #awesomplete_list_1 li {
