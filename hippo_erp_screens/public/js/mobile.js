@@ -1,6 +1,7 @@
-
+console.log(screenWidth)
 document.addEventListener("DOMContentLoaded", () => {
-    const target = document.querySelector('.navbar-collapse.collapse');
+    if (screenWidth > 400) return
+        const target = document.querySelector('.navbar-collapse.collapse');
     const toggler = document.querySelector(".navbar-toggler");
 
     if (!target || !toggler) return;
@@ -62,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const dropdownLi = document.querySelector('#website-post-login');
+
+    if (screenWidth > 400) return;
     const data = document.querySelector('.dropdown-menu.dropdown-menu-right')
     if (data) {
         data.style.border = 'none'
@@ -110,4 +113,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     dropdownLi.classList.remove('dropdown', 'logged-in');
+
 });
