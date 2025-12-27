@@ -428,3 +428,21 @@ use.like-icon {
     background-size: contain;
     z-index: 9999;
 }
+
+.list-row-head
+{
+    background-color: #535353ff;
+    color: #fff;
+    border-radius: 4px;
+    .level-right
+    {
+        display: none;
+    }
+}
+.list-row
+{
+    .level-right
+    {
+        display: none;
+    }
+}

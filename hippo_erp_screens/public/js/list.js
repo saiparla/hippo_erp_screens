@@ -287,8 +287,12 @@ const standardfilters = () => {
         });
     };
 
+    // const filterDivs = document.querySelectorAll(
+    //     ".standard-filter-section.flex .form-group input"
+
+    // );
     const filterDivs = document.querySelectorAll(
-        ".standard-filter-section.flex > .form-group > input"
+        '.standard-filter-section.flex .form-group input:not([type="checkbox"])'
     );
 
     filterDivs.forEach(div => {
@@ -297,7 +301,7 @@ const standardfilters = () => {
         div.style.borderRadius = "4px";
         div.style.marginRight = "8px";
         div.style.border = "1px solid #ccc";
-        div.style.boxShadow = "0 0 5px #ccc";
+        div.style.boxShadow = "none";
         div.style.transition = "border 0.3s ease, box-shadow 0.3s ease";
 
         div.addEventListener("focus", () => {
@@ -321,7 +325,7 @@ const standardfilters = () => {
         div.style.borderRadius = "4px";
         div.style.marginRight = "8px";
         div.style.border = "1px solid #ccc";
-        div.style.boxShadow = "0 0 5px #ccc";
+        div.style.boxShadow = "none";
         div.style.transition = "border 0.3s ease, box-shadow 0.3s ease";
 
         div.addEventListener("focus", () => {
@@ -340,12 +344,13 @@ const standardfilters = () => {
     );
 
     selectFields.forEach(select => {
+        select.style.display = "";
         select.style.backgroundColor = "#fff";
         select.style.padding = "6px 10px";
         select.style.borderRadius = "4px";
         select.style.marginRight = "8px";
         select.style.border = "1px solid #ccc";
-        select.style.boxShadow = "0 0 5px #ccc";
+        select.style.boxShadow = "none";
         select.style.transition = "border 0.3s ease, box-shadow 0.3s ease";
         select.style.cursor = "pointer";
 
@@ -463,7 +468,7 @@ const styleListView = () => {
     const header = document.querySelector(".list-row-head");
     if (header) {
         header.style.setProperty("background-color", "#535353ff", "important");
-        header.style.setProperty("color", "white", "important");
+        header.style.setProperty("color", "#fff", "important");
         header.style.setProperty("font-weight", "bold", "important");
         header.style.setProperty("border-radius", "4px", "important");
         const levelright = header.querySelector('.level-right')
