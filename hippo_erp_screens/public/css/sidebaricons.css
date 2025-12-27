@@ -295,14 +295,13 @@ use.like-icon {
     border: none !important;
     transition: 400ms;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px #888;
-    border-radius: 5px;
 }
 
 /* Hover state */
 .page-actions button:hover {
     background-color: #fc3f19d8 !important;
     color: white !important;
+    box-shadow: 0px 0px 5px #888;
 }
 
 .custom-btn-group,
@@ -333,12 +332,14 @@ use.like-icon {
     button {
         width: max-content !important;
         border-radius: 5px !important;
-        box-shadow: 0px 0px 3px #888;
+        transition: 400ms;
+
+
     }
 
     .icon-btn {
         background-color: #017bcf !important;
-
+        
         .icon-sm {
             stroke-width: 1.5px !important;
             stroke: #fff !important;
@@ -347,6 +348,7 @@ use.like-icon {
 
     .icon-btn:hover {
         background-color: #fc3f19d8 !important;
+        box-shadow: 0px 0px 3px #888;
 
         .icon-sm {
             stroke-width: 1.5px !important;
@@ -360,7 +362,7 @@ use.like-icon {
     width: max-content !important;
     background-color: green !important;
     border-radius: 5px !important;
-    box-shadow: 0px 0px 3px #888;
+
 
     svg {
         stroke-width: 1.5px;
@@ -372,6 +374,8 @@ use.like-icon {
 
 .btn.btn-primary.btn-sm.primary-action:hover {
     background-color: rgb(3, 83, 3) !important;
+    box-shadow: 0px 0px 3px #888;
+    /* background-color: #218838 !important; */
 }
 
 #awesomplete_list_1 li {
@@ -393,7 +397,7 @@ use.like-icon {
     background: linear-gradient(90deg, #017bcf 0%, #3991ff 60%, #66adff 100%);
     color: #fff;
     font-weight: 600;
-    transform: scale(1.003);  
+    transform: scale(1.003);
     box-shadow: 0px 0px 5px #888;
 
     a {
