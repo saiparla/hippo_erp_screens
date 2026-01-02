@@ -139,6 +139,8 @@ const styleGrid = () => {
         if (header.dataset.styled === 'true') return;
 
         header.style.backgroundColor = '#017bcf';
+        header.style.color = '#fff';
+
         header.querySelectorAll('.static-area, span').forEach(el => {
             el.style.color = '#ffffff';
         });
