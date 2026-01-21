@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hippo Cloud Technologies | Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="https://hippoclouds.com/wp-content/uploads/2024/02/images.jpg">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-page: #f0f9ffbe;
+            --error: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 20px;
+            min-height: 100vh;
+            background-color: #cacaca;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: #ffff;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px 5px rgba(0, 0, 0, 0.05), 0 2px 4px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .header img {
+            width: 160px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.35));
+        }
+
+        .header p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .form-content {
+            padding: 40px;
+            padding-top: 15px;
+        }
+
+        .form-content h2 {
+            text-align: center;
+            font-size: 20px;
+            margin: 0px 0 15px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field.full {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-dark);
+            background: #fff;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .helper {
+            font-size: 12px;
+            color: var(--error);
+            margin-top: 4px;
+            display: none;
+        }
+
+        .radio-card-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .radio-label {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .radio-option input:checked+.radio-label {
+            background: #eff6ff;
+            color: var(--primary);
+            border-color: var(--primary);
+            font-weight: 500;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            background: #017bcf;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #6d28d9, #017bcf, #6d28d9);
+        }
+
+        button:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .small-swal {
+            padding: 1.2rem !important;
+        }
+
+        .small-swal-icon {
+            transform: scale(0.75);
+        }
+
+        .small-swal-title {
+            font-size: 18px !important;
+        }
+
+        .small-swal-text {
+            font-size: 14px !important;
+        }
+
+        .swal2-confirm {
+            font-size: 14px !important;
+            padding: 8px 16px !important;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field.full {
+                grid-column: span 1;
+            }
+
+            .form-content {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/assets/hippo_erp_screens/images/hippologo.png">
+            <p>Learn from the Experts. Lead with Confidence</p>
+        </div>
+
+        <form id="regForm" class="form-content" novalidate>
+            <h2>Course Registration Form</h2>
+            <div class="grid">
+
+                <div class="field">
+                    <label>Full Name</label>
+                    <input name="fullName" placeholder="Enter your name">
+                    <span class="helper">Full name is required</span>
+                </div>
+
+                <div class="field">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="email@example.com">
+                    <span class="helper">Valid email is required</span>
+                </div>
+
+                <div class="field">
+                    <label>Phone Number</label>
+                    <input name="phone" placeholder="Phone">
+                    <span class="helper">Phone number is required</span>
+                </div>
+
+                <div class="field">
+                    <label>Address</label>
+                    <input name="address" placeholder="City">
+                    <span class="helper">Address is required</span>
+                </div>
+
+                <div class="field">
+                    <label>Gender</label>
+                    <div class="radio-card-group">
+                        <label class="radio-option">
+                            <input type="radio" name="gender" value="Male">
+                            <span class="radio-label">Male</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="gender" value="Female">
+                            <span class="radio-label">Female</span>
+                        </label>
+                    </div>
+                    <span class="helper">Please select gender</span>
+                </div>
+
+                <div class="field">
+                    <label>Select Course</label>
+                    <select name="course" id="course">
+                        <option value="">Select Course</option>
+                    </select>
+                    <span class="helper">Please select a course</span>
+                </div>
+
+                <div class="field" id="subCourseField" style="display:none">
+                    <label>Select Specialization</label>
+                    <select name="subCourse" id="subCourse"></select>
+                    <span class="helper">Please select specialization</span>
+                </div>
+
+                <div class="field">
+                    <label>Qualification</label>
+                    <input name="qualification" placeholder="e.g. B.Tech">
+                </div>
+
+                <div class="field">
+                    <label>College / Company</label>
+                    <input name="college" placeholder="Organization">
+                    <span class="helper">This field is required</span>
+                </div>
+
+                <div class="field">
+                    <label>Preferred Batch</label>
+                    <select name="batch">
+                        <option>Morning</option>
+                        <option>Evening</option>
+                        <option>Weekend</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>How did you find us?</label>
+                    <select name="source">
+                        <option value="">Select Source</option>
+                        <option>Website</option>
+                        <option>Walk-in</option>
+                        <option>Social Media</option>
+                        <option>Friend Referral</option>
+                        <option>Advertisement</option>
+                        <option>Other</option>
+                    </select>
+                    <span class="helper">Please select a source</span>
+                </div>
+
+                <div class="field full">
+                    <label>Skill Mode</label>
+                    <div class="radio-card-group">
+                        <label class="radio-option"><input type="radio" name="mode" value="Online" checked><span
+                                class="radio-label">Online</span></label>
+                        <label class="radio-option"><input type="radio" name="mode" value="Offline"><span
+                                class="radio-label">Offline</span></label>
+                    </div>
+                </div>
+
+                <div class="field full">
+                    <label>Additional Comments</label>
+                    <textarea name="comments" placeholder="Any questions?"></textarea>
+                </div>
+
+            </div>
+            <button id="submitBtn">Register Now</button>
+        </form>
+    </div>
+
+    <script>
+        const nameRegex = /^[A-Za-z\s]{2,50}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const phoneRegex = /^(\+91[\-\s]?)?[6-9]\d{9}$/;
+
+    
+        let courses = []; 
+        let subCoursesMap = {};
+
+        // Fetch sub-courses
+        fetch("/api/method/hippo_erp_screens.api.get_all_sub_courses")
+            .then(res => res.json())
+            .then(r => {
+                r.message.forEach(item => {
+                    if (!subCoursesMap[item.course]) subCoursesMap[item.course] = [];
+                    subCoursesMap[item.course].push(item.sub_course);
+                });
+            })
+            .catch(err => console.error("Failed to load sub courses", err));
+
+        fetch("/api/method/hippo_erp_screens.api.get_all_courses")
+            .then(res => res.json())
+            .then(r => {
+                courses = r.message.map(el => el.course);
+                const courselist = document.getElementById('course');
+                if (courses.length > 0) {
+                    courses.forEach(courseName => {
+                        const option = document.createElement('option');
+                        option.value = courseName;
+                        option.innerText = courseName;
+                        courselist.append(option);
+                    });
+                } else {
+                    const option = courselist.querySelector('option');
+                    option.innerText = 'No data to show';
+                }
+            })
+            .catch(err => console.error("Failed to load courses", err));
+
+        const courseSelect = document.getElementById("course");
+        const subCourseField = document.getElementById("subCourseField");
+        const subCourseSelect = document.getElementById("subCourse");
+
+        courseSelect.addEventListener("change", () => {
+            const selectedCourse = courseSelect.value;
+            subCourseSelect.innerHTML = "";
+
+            if (subCoursesMap[selectedCourse] && subCoursesMap[selectedCourse].length > 0) {
+                const defaultOption = new Option("Select Specialization", "");
+                subCourseSelect.add(defaultOption);
+
+                subCoursesMap[selectedCourse].forEach(sub => {
+                    const option = new Option(sub, sub);
+                    subCourseSelect.add(option);
+                });
+
+                subCourseField.style.display = "flex";
+            } else {
+                subCourseField.style.display = "none";
+                subCourseSelect.value = "";
+            }
+        });
+
+        function validateWithRegex(input, regex, emptyMsg, invalidMsg) {
+            const helper = input.parentElement.querySelector(".helper");
+            const value = input.value.trim();
+
+            if (!value) {
+                helper.innerText = emptyMsg;
+                helper.style.display = "block";
+                return false;
+            }
+
+            if (!regex.test(value)) {
+                helper.innerText = invalidMsg;
+                helper.style.display = "block";
+                return false;
+            }
+
+            helper.style.display = "none";
+            return true;
+        }
+
+  
+        document.getElementById("regForm").addEventListener("submit", e => {
+            e.preventDefault();
+            let valid = true;
+            const form = e.target;
+
+
+            valid &= validateWithRegex(form.fullName, nameRegex, "Full name is required", "Enter a valid full name");
+            valid &= validateWithRegex(form.email, emailRegex, "Email is required", "Enter a valid email address");
+            valid &= validateWithRegex(form.phone, phoneRegex, "Phone number is required", "Enter a valid phone number");
+
+        
+            document.querySelectorAll(".field").forEach(f => {
+                const helper = f.querySelector(".helper");
+                const input = f.querySelector("input, select, textarea");
+                if (!input || !helper) return;
+                if (["fullName", "email", "phone"].includes(input.name)) return;
+
+                if (input.name === "subCourse") {
+                    if (subCourseField.style.display !== "none" && !input.value) {
+                        helper.style.display = "block";
+                        valid = false;
+                    } else helper.style.display = "none";
+                    return;
+                }
+
+                if (input.type === "radio") {
+                    const checked = f.querySelector('input[type="radio"]:checked');
+                    if (!checked) {
+                        helper.style.display = "block";
+                        valid = false;
+                    } else helper.style.display = "none";
+                    return;
+                }
+
+                if (!input.value.trim() && !["qualification", "batch", "comments"].includes(input.name)) {
+                    helper.style.display = "block";
+                    valid = false;
+                } else helper.style.display = "none";
+            });
+
+            if (!valid) return;
+
+        
+            const formData = new FormData(form);
+            const payload = {
+                fullName: formData.get("fullName").trim(),
+                email: formData.get("email").trim(),
+                phone: formData.get("phone").trim(),
+                address: formData.get("address").trim(),
+                gender: formData.get("gender") || "N/A",
+                course: formData.get("course"),
+                subCourse: subCourseField.style.display !== "none" ? formData.get("subCourse") : "N/A",
+                qualification: formData.get("qualification").trim(),
+                college: formData.get("college").trim(),
+                batch: formData.get("batch"),
+                source: formData.get("source"),
+                mode: formData.get("mode"),
+                comments: formData.get("comments").trim()
+            };
+
+            const btn = document.getElementById("submitBtn");
+            btn.disabled = true;
+            btn.innerText = "Submitting...";
+
+            fetch("/api/method/hippo_erp_screens.api.create_student_registration", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Thank You!",
+                    text: "Registration Complete!",
+                    confirmButtonColor: "#2563eb",
+                    width: "250px",
+                    customClass: {
+                        popup: "small-swal",
+                        title: "small-swal-title",
+                        htmlContainer: "small-swal-text",
+                        icon: "small-swal-icon"
+                    }
+                });
+                form.reset();
+                subCourseField.style.display = "none";
+            })
+            .catch(() => Swal.fire("Error", "Submission failed", "error"))
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerText = "Register Now";
+            });
+        });
+    </script>
+</body>
+</html>

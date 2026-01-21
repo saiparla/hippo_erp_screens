@@ -52,6 +52,13 @@ web_include_js = [
 
 ]
 
+website_route_rules = [
+    {
+        "from_route": "/course_registration",
+        "to_route": "course_registration"
+    }
+]
+
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "hippo_erp_screens/public/scss/website"
 
