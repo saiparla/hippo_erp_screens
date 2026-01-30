@@ -205,42 +205,84 @@ observer.observe(document.body, { childList: true, subtree: true });
 //     }
 // }
 
+// function replaceAddItemIcon() {
+//     const buttons = document.querySelectorAll('.btn-primary.primary-action');
+
+//     buttons.forEach(addItemButton => {
+//         const textSpan = addItemButton.querySelector('.hidden-xs');
+//         if (!textSpan) return;
+
+//         const buttonText = textSpan.textContent.trim().toLowerCase();
+
+//         // Remove existing SVG
+//         const svg = addItemButton.querySelector('svg');
+//         if (svg) svg.remove();
+
+//         // Prevent duplicate images
+//         if (textSpan.querySelector('img')) return;
+
+//         const img = document.createElement('img');
+
+//         if (buttonText === 'print') {
+//             img.src = "/assets/hippo_erp_screens/images/printer.png";
+//             img.style.width = '13px';
+//             img.style.height = '13px';
+//         } else {
+//             img.src = "/assets/hippo_erp_screens/images/plus-solid-full.svg";
+//             img.style.width = "16px";
+//             img.style.height = "16px";
+//         }
+
+//         img.alt = "Icon";
+
+//         img.style.objectFit = "contain";
+//         img.style.marginRight = "4px";
+
+//         textSpan.insertBefore(img, textSpan.firstChild);
+//     });
+// }
+
 function replaceAddItemIcon() {
+    // if (screenWidth < 500) return;
+
     const buttons = document.querySelectorAll('.btn-primary.primary-action');
 
-    buttons.forEach(addItemButton => {
-        const textSpan = addItemButton.querySelector('.hidden-xs');
-        if (!textSpan) return;
+    buttons.forEach(button => {
+        const label = button.dataset.label?.toLowerCase();
+        if (!label) return;
 
-        const buttonText = textSpan.textContent.trim().toLowerCase();
-
-        // Remove existing SVG
-        const svg = addItemButton.querySelector('svg');
+        // Remove existing svg icons
+        const svg = button.querySelector('svg');
         if (svg) svg.remove();
 
         // Prevent duplicate images
-        if (textSpan.querySelector('img')) return;
+        if (button.querySelector('img[data-btn-icon]')) return;
 
         const img = document.createElement('img');
+        img.setAttribute('data-btn-icon', 'true');
 
-        if (buttonText === 'print') {
-            img.src = "/assets/hippo_erp_screens/images/printer.png";
+        if (label === 'print') {
+            img.src = "/assets/deenaj_ui/images/printer.png";
             img.style.width = '13px';
             img.style.height = '13px';
+            img.style.marginLeft = screenWidth < 500 && '25%';
+
         } else {
-            img.src = "/assets/hippo_erp_screens/images/plus-solid-full.svg";
-            img.style.width = "16px";
-            img.style.height = "16px";
+            img.src = "/assets/deenaj_ui/images/plus-solid-full.svg";
+            img.style.width = '16px';
+            img.style.height = '16px';
         }
 
         img.alt = "Icon";
-
         img.style.objectFit = "contain";
         img.style.marginRight = "4px";
 
-        textSpan.insertBefore(img, textSpan.firstChild);
+        // Insert icon at the start of the button
+        button.insertBefore(img, button.firstChild);
     });
 }
+
+
 
 
 
@@ -266,7 +308,7 @@ function replaceCustomActionIcons() {
         if (btn.querySelector('img')) return;
 
         const img = document.createElement('img');
-        
+
         img.style.height = "16px";
         img.style.objectFit = "contain";
         img.style.marginRight = "2px";
@@ -280,7 +322,7 @@ function replaceCustomActionIcons() {
         else if (label.includes('pdf')) {
             img.src = "/assets/hippo_erp_screens/images/file-lines-solid-full.svg";
             img.alt = "PDF";
-            
+
             img.style.height = "17px";
         }
         else if (label.includes('refresh')) {
